@@ -1,0 +1,22 @@
+{
+  "name": "ng-zone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dearchy/Ng-Zone.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dearchy/Ng-Zone/issues"
+  },
+  "homepage": "https://github.com/dearchy/Ng-Zone#readme",
+  "dependencies": {
+    "zone.js": "^0.13.1"
+  }
+}

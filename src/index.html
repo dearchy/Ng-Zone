@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/vue@next"></script>
+  <script src="https://unpkg.com/vue-router@next"></script>
+  <script src="https://unpkg.com/@vue/composition-api"></script>
+  <script src="https://unpkg.com/vuex@next"></script>
+  <style>
+    /* draw a box with shadow */
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <router-view></router-view>
+  </div>
+  <script>
+    // create a simple vue3 app with login feature
+    const Login = {
+      template: `
+        <div>
+          <h1>Login</h1>
+          <button @click="login">Login</button>
+        </div>
+      `,
+      setup() {
+        const router = VueRouter.useRouter()
+        const login = () => {
+          // login logic
+          router.push('/dashboard')
+        }
+        return {
+          login
+        }
+      }
+    }
+    const Dashboard = {
+      template: `
+        <div>
+          <h1>Dashboard</h1>
+          <button @click="logout">Logout</button>
+        </div>
+      `,
+      setup() {
+        const router = VueRouter.useRouter()
+        const logout = () => {
+          // logout logic
+          router.push('/login')
+        }
+        return {
+          logout
+        }
+      }
+    }
+    const routes = [
+      { path: '/login', component: Login },
+      { path: '/dashboard', component: Dashboard }
+    ]
+    const router = VueRouter.createRouter({
+      history: VueRouter.createWebHistory(),
+      routes
+    })
+    const app = Vue.createApp({})
+    app.use(router)
+    app.mount('#app')
+  </script>
+</body>
+</html>
